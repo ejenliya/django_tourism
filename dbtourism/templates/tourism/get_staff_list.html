@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}
+{% endblock title %}
+{% block header %}
+    {% include "logined_header.html" %}
+{% endblock header %}
+{% block custom_css %}
+<style>
+    p{
+        color:white;
+    };
+    .form-control{
+        max-width: 150px;
+        position: absolute;
+    }
+</style>
+{% endblock custom_css %}
+{% block main_content %}
+{% if staff != '' %}
+    <table class="table table-dark">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ФИО</th>
+                <th scope="col">Должность</th>
+                <th scope="col">Зарплата</th>
+                <th scope="col">Дата рожждения</th>
+                <th scope="col">Данные паcпорта</th>
+            </tr>
+        </thead>
+        {% for row in staff %}
+            <tr>
+                <th>{{ row.full_name }}</th>
+                <th>{{ row.dolzhnost }}</th>
+                <th>{{ row.salary }}</th>
+                <th>{{ row.date_of_birth }}</th>
+                <th>{{ row.passport_data }}</th>
+            </tr>          
+        {% endfor %}
+    </table>
+{% endif %}
+{% endblock main_content %}
+{% block side_script %}
+{% endblock side_script %}

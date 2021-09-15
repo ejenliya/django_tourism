@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block style %}
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+{% endblock %}
+{% block title %}Statistics{% endblock title %}
+{% block header %}
+    {% include "logined_header.html" %}
+{% endblock header %}
+{% block main_content %}
+<div id="mySidenav" class="sidenav">
+    <!-- <a href="javascript:void(0)" class="closebtn" style="color:white" onclick="closeNav()">X</a> -->
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Нанять гида" class ="btn btn-success">
+    </form>
+</div>
+{% if result != '' %}
+{% endif %}
+{% endblock main_content %}

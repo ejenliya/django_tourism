@@ -1,0 +1,36 @@
+
+    {% extends 'base.html' %}
+
+    {% block style %}
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    {% endblock style %}
+{% block title %}Statistics{% endblock title %}
+{% block custom_css %}
+    <style>
+        form{
+            width: 100%;
+        }
+    </style>
+{% endblock custom_css %}
+
+{% block header %}
+    {% include "logined_header.html" %}
+{% endblock header %}
+{% block main_content %}
+<div class="container-fluid">
+
+    <div class="d-flex juatify-content-center">
+        <!-- <div id="mySidenav" class="sidenav"> -->
+            <!-- <a href="javascript:void(0)" class="closebtn" style="color:white" onclick="closeNav()">X</a> -->
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Создать" class ="btn btn-success">
+            </form>
+        <!-- </div> -->
+    </div>
+</div>
+
+{% if result != '' %}
+{% endif %}
+{% endblock main_content %}

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}
+{% endblock title %}
+{% block header %}
+    {% include "logined_header.html" %}
+{% endblock header %}
+{% block custom_css %}
+<style>
+    p{
+        color:white;
+    };
+    .form-control{
+        max-width: 150px;
+        position: absolute;
+    }
+</style>
+{% endblock custom_css %}
+{% block main_content %}
+{% if excursions != '' %}
+    <table class="table table-dark">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ФИО</th>
+                <th scope="col">Кол-во мест</th>
+                <th scope="col">Стоимость</th>
+                <th scope="col">Дата экскурсии</th>
+            </tr>
+        </thead>
+        {% for row in excursions %}
+            <tr>
+                <th>{{ row.id_client__full_name }}</th>
+                <th>{{ row.id_excursion__number_of_seats }}</th>
+                <th>{{ row.id_excursion__price }}</th>
+                <th>{{ row.date }}</th>
+            </tr>          
+        {% endfor %}
+    </table>
+{% endif %}
+{% endblock main_content %}
+{% block side_script %}
+{% endblock side_script %}  
